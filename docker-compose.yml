@@ -1,0 +1,10 @@
+version: '3'
+services:
+  application:
+    build: .
+    image: revolut:latest
+    command: java -jar /app/revolut.jar
+    ports:
+      - 8080:8080
+    env_file:
+      - .dockerenv

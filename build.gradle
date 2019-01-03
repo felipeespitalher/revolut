@@ -18,15 +18,21 @@ dependencies {
     compile group: 'com.typesafe.akka', name: 'akka-http-jackson_2.12', version: '10.1.6'
 
     compile group: 'com.google.inject', name: 'guice', version: '4.1.0'
+    compile group: 'org.reflections', name: 'reflections', version: '0.9.11'
 
     //testCompile 'com.typesafe.akka:akka-testkit_2.12:2.5.19'
     //testCompile 'junit:junit:4.12'
 }
 
-mainClassName = "com.lightbend.akka.sample.AkkaQuickstart"
+mainClassName = 'com.revolut.MainApplication'
 
-run {
-    standardInput = System.in
+jar {
+    manifest { attributes "Main-Class": "$mainClassName" }
+
+    zip64 = true
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 group 'com.revolut'

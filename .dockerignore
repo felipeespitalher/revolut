@@ -1,11 +1,12 @@
 .idea/*
 .idea_modules/*
 *.iml
-*.log
+
 .DS_Store
 
 .gradle/*
 
+*.log
 
 data/*
 
@@ -14,6 +15,3 @@ build/*
 
 out/*
 /*/out/*
-
-gradlew
-gradlew.bat
